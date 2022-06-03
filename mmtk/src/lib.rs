@@ -49,6 +49,7 @@ pub struct OpenJDK_Upcalls {
     pub compute_thread_roots: extern "C" fn(trace: *mut c_void, tls: OpaquePointer),
     pub scan_object: extern "C" fn(trace: *mut c_void, object: ObjectReference, tls: OpaquePointer),
     pub dump_object: extern "C" fn(object: ObjectReference),
+    pub dump_object_custom: extern "C" fn(object: ObjectReference),
     pub get_object_size: extern "C" fn(object: ObjectReference) -> usize,
     pub get_mmtk_mutator: extern "C" fn(tls: VMMutatorThread) -> *mut Mutator<OpenJDK>,
     pub is_mutator: extern "C" fn(tls: VMThread) -> bool,

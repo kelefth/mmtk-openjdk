@@ -157,4 +157,10 @@ impl ObjectModel<OpenJDK> for VMObjectModel {
             ((*UPCALLS).dump_object)(object);
         }
     }
+
+    fn dump_object_custom(object: ObjectReference) {
+        unsafe {
+            ((*UPCALLS).dump_object_custom)(object);
+        }
+    }
 }

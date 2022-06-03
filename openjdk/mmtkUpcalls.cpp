@@ -236,6 +236,12 @@ static void mmtk_dump_object(void* object) {
   // o->print_address();
 }
 
+static void mmtk_dump_object_custom(void* object) {
+  oop o = (oop) object;
+
+  o->dump();
+}
+
 static size_t mmtk_get_object_size(void* object) {
   oop o = (oop) object;
   // Slow-dispatch only. The fast-path code is moved to rust.
@@ -332,6 +338,7 @@ OpenJDK_Upcalls mmtk_upcalls = {
   mmtk_compute_thread_roots,
   mmtk_scan_object,
   mmtk_dump_object,
+  mmtk_dump_object_custom,
   mmtk_get_object_size,
   mmtk_get_mmtk_mutator,
   mmtk_is_mutator,

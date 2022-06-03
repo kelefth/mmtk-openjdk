@@ -116,6 +116,7 @@ typedef struct {
     void (*compute_thread_roots) (void* trace, void* tls);
     void (*scan_object) (void* trace, void* object, void* tls);
     void (*dump_object) (void* object);
+    void (*dump_object_custom) (void* object);
     size_t (*get_object_size) (void* object);
     void* (*get_mmtk_mutator) (void* tls);
     bool (*is_mutator) (void* tls);
